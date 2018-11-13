@@ -1,0 +1,2 @@
+1.本次开发的项目代码放在新的目录下：com\anjie\elevator
+2.事件解析分类，分为发送和接受。接受的使用EventFactory统一处理。

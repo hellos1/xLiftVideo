@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?> 
+<layout>
+	<view version="0"/>
+	<control name="background" x="0" y="0" width="1024" height="768">
+		<color>0.0.0</color>
+	</control>
+	<!-- 时间区域 -->
+	<control name="timer" x="856" y="28" width="168" height="65">
+		<format>kk:mm</format>
+		<align>center</align>
+		<size>60</size>
+		<color>255.255.255</color>
+	</control>
+	<control name="date" x="856" y="85" width="168" height="32">
+		<format>yyyy-MM-dd</format>
+		<align>center</align>
+		<size>27</size>
+		<color>255.255.255</color>
+	</control>
+	<control name="title" x="355" y="28" width="500" height="60">
+		<text>KONE</text>
+		<align>left</align>
+		<size>60</size>
+		<color>255.255.255</color>
+	</control>
+	<!-- 电梯运行方向 -->
+	<control name="arrows" x="100" y="135" width="150" height="170">
+		<up>up.png</up>
+		<down>down.png</down>
+		<stop>stop.png</stop>
+	</control>
+        <!-- 电梯状态 -->
+	<control name="status" x="76" y="570" width="200" height="100">
+		<image>oss.png</image>
+	</control>
+	<!-- 电梯运行楼层 -->
+	<control name="floor" x="0" y="311" width="352" height="260">
+	    <color>255.255.255</color>
+	    <size>260</size>
+	</control>
+
+	<!-- 播放区域 -->
+	<control name="player" x="355" y="150" width="672" height="505"/>
+
+	<!-- 自定义文本区域 -->
+	<control name="adtext" x="355" y="625" width="650" height="113">
+	    <text>Have a nice Day!Have a nice Day!Have a nice Day!</text>
+	    <color>255.255.255</color>
+	    <size>35</size>
+	</control>
+</layout>

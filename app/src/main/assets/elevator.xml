@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<elevator>
+		<!-- 0，90，180，360旋转-->
+		<rot>0</rot>
+		<!-- 1:安杰云;2-Best云 -->
+		<cloud>2</cloud>
+		<!--0 4g, 1 ethernet, 2 单机-->
+		<net>0</net> 
+		<localip>192.168.1.25</localip>
+		<netmask>255.255.255.0</netmask>
+		<gateway>192.168.1.1</gateway>
+		<dns>192.168.1.1</dns>
+		<!-- 服务器的IP地址 -->
+		<server>http://139.196.15.189</server>
+		<PID>f0ab0dd2-e4ba-4bef-92eb-a320d3739583</PID>
+		<DID>b839d8f5-c8ad-4ce5-9590-91784c61a7e7</DID>
+		<version>f40b142e-2cb0-47b0-80c5-5c1059055de0</version>
+	</elevator>
+</root>
+

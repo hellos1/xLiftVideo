@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.anjie.lift" android:sharedUserId="android.uid.system">
+
+    <!-- 加入在SDCard中创建与删除文件的权限android:sharedUserId="android.uid.system -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <!-- 加入在SDCard中写入数据的权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 访问网络权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 监听网络状态 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--SDK使用权限-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <!--CHANGE_NETWORK_STATE 2018.04.23 添加-->
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.SET_TIME_ZONE"/>
+    <!--写系统设置权限(声音和屏幕亮度)-->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <!-- 程序内部自用权限 -->
+    <permission
+        android:name="com.anjie.lift.inner.permission"
+        android:protectionLevel="signature" />
+    <!-- 进程间数据通知 -->
+    <uses-permission android:name="com.anjie.lift.inner.permission" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INSTALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.DELETE_PACKAGES" />
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:name="com.anjie.lift.app.LiftApplication">
+        <!-- 电梯启动欢迎页面 -->
+        <activity
+            android:name="com.anjie.lift.activity.WelcomeActivity"
+            android:configChanges="orientation|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <!--
+				<category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
+                 -->
+                <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 电梯运行播放主页面 -->
+        <activity
+            android:name=".activity.MainActivity"
+            android:configChanges="orientation|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation|mcc|mnc"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 后台服务 -->
+        <service android:name=".service.ResourceService">
+            <intent-filter>
+                <action android:name="com.anjie.lift.background.resource" />
+            </intent-filter>
+        </service>
+
+        <!-- 监听网络变化 -->
+        <receiver android:name=".service.NetworkChangeReceiver" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>
