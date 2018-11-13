@@ -273,7 +273,7 @@ public class MainActivity extends Activity
             // 非全屏模式
             initNormalViewMode();
         }
-        if(is_first==true) {
+        if(is_first) {
             // 开机或者重新加载布局的时候显示MAC地址的二维码功能
             qrCodeInfoView.showMacQRCodeView(this, rootLayout);
         }
@@ -433,7 +433,7 @@ public class MainActivity extends Activity
 
         }
         float diff = 0;
-        if(is_90==true)
+        if(is_90)
         {
             diff=78;
         }
@@ -442,7 +442,7 @@ public class MainActivity extends Activity
         directionRegion = ViewHelper.initDirectionView(this);
         if (directionRegion != null)
         {
-            if(isHiddenTop==true) {
+            if(isHiddenTop) {
                 float y=directionRegion.getY();
                 y-=diff;
                 directionRegion.setY(y);
@@ -455,7 +455,7 @@ public class MainActivity extends Activity
         statusRegion = ViewHelper.initStatusView(this);
         if (statusRegion != null)
         {
-            if(isHiddenTop==true) {
+            if(isHiddenTop) {
                 float y=statusRegion.getY();
                 y-=diff;
                 statusRegion.setY(y);
@@ -469,7 +469,7 @@ public class MainActivity extends Activity
         floorNumRegion = ViewHelper.initFloorNumView(this);
         if (floorNumRegion != null)
         {
-            if(isHiddenTop==true) {
+            if(isHiddenTop) {
                 float y=floorNumRegion.getY();
                 y-=diff;
                 floorNumRegion.setY(y);
