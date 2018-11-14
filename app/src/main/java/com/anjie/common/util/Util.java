@@ -139,8 +139,10 @@ public class Util
     /**
      * <formatDate> 格式化时间
      * 
-     * @param date
+     * @param str
+     * date
      * @return
+     * dateString
      **/
     public static String formatDate(String str)
     {
@@ -176,8 +178,10 @@ public class Util
     /**
      * <formatDate> 格式化时间
      * 
-     * @param date
+     * @param str
+     * date
      * @return
+     * date string
      **/
     public static String formatBirthday(String str)
     {
@@ -287,8 +291,9 @@ public class Util
     /**
      * 字符串变成JSON对象
      * 
-     * @param json
-     *            JSON格式的字符串
+     * @param str
+     * json
+     * JSON格式的字符串
      * @return JSON对象
      */
     public static JSONObject strToJson(String str)

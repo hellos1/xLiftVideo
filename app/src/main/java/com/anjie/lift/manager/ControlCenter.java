@@ -104,50 +104,47 @@ public class ControlCenter
         @Override
         public void onReceive(Context context, Intent intent)
         {
-            if (BroadcastCenter.VIEW_CHANGE_ACTION.equals(intent.getAction()))
-            {
-                // 重新加载视图
-                handleViewChange();
+
+            if(intent.getAction()!=null){
+                switch (intent.getAction()){
+                    case BroadcastCenter.VIEW_CHANGE_ACTION:
+                        // 重新加载视图
+                        handleViewChange();
+                        break;
+                    case BroadcastCenter.VIEW_CHANGE_ACTION_LOCAL:
+                        // 重新加载播放列表
+                        handleViewChangeLocal();
+                        break;
+                    case BroadcastCenter.PLAYLIST_CHANGE_ACTION:
+                        // 重新加载播放列表
+                        handlePlayListChange(false);
+                        break;
+                    case BroadcastCenter.USB_SYNC_DATA_ACTION:
+                        // USB同步开始,显示等待进度框
+                        showProgressDialog();
+                        break;
+                    case BroadcastCenter.USB_SYNC_DATA_FINISH_ACTION:
+                        // USB同步结束,关闭等待进度框
+                        closeProgressDialog();
+                        // 重新加载播放列表播放
+                        handlePlayListChange(true);
+                        break;
+                    case BroadcastCenter.PLAYLIST_CHANGE_ACTION_CLOUD:
+                        // 重新加载播放列表播放
+                        //handlePlayListChange(true);
+                        //2018.04.16
+                        handleCloudPlayListChange(true);
+                        break;
+                    case BroadcastCenter.REFRESH_FULL_SCREEN_ACTION:
+                        //2018.07.05
+                        //云端更新横竖屏时，在全屏模式下，图片无法正确显示
+                        refreshFullScreen();
+                        break;
+                    default:
+                        break;
+                }
             }
-            else if (BroadcastCenter.VIEW_CHANGE_ACTION_LOCAL.equals(intent.getAction()))
-            {
-                // 重新加载播放列表
-                handleViewChangeLocal();
-            }
-            else if (BroadcastCenter.PLAYLIST_CHANGE_ACTION.equals(intent.getAction()))
-            {
-                // 重新加载播放列表
-                handlePlayListChange(false);
-            }
-            else if (BroadcastCenter.USB_SYNC_DATA_ACTION.equals(intent.getAction()))
-            {
-                // USB同步开始,显示等待进度框
-                showProgressDialog();
-            }
-            else if (BroadcastCenter.USB_SYNC_DATA_FINISH_ACTION.equals(intent.getAction()))
-            {
-                // USB同步结束,关闭等待进度框
-                closeProgressDialog();
-                // 重新加载播放列表播放
-                handlePlayListChange(true);
-            }
-            else if (BroadcastCenter.PLAYLIST_CHANGE_ACTION_CLOUD.equals(intent.getAction()))
-            {
-                // 重新加载播放列表播放
-                //handlePlayListChange(true);
-                //2018.04.16
-                handleCloudPlayListChange(true);
-            }
-            else if (BroadcastCenter.REFRESH_FULL_SCREEN_ACTION.equals(intent.getAction()))
-            {
-                //2018.07.05
-                //云端更新横竖屏时，在全屏模式下，图片无法正确显示
-                refreshFullScreen();
-            }
-            else
-            {
-                //nothing to do here
-            }
+
         }
     };
 

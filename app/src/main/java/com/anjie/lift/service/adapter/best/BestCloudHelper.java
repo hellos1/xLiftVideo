@@ -143,25 +143,24 @@ final class BestCloudHelper
                 LogX.d(TAG, "BestResItem:" + resItem);
                 if (resItem != null)
                 {
-                    if (resItem.getType() == BestResItem.ResourceType.Title)
-                    {
-                        ConfigManager.getInstance().setTitle(resItem.getContent());
-                        ControlCenter.getInstance().notifyTitleChange(resItem.getContent());
-                    }
-                    else if (resItem.getType() == BestResItem.ResourceType.ScrollText)
-                    {
-                        ConfigManager.getInstance().setScrollText(resItem.getContent());
-                        ControlCenter.getInstance().notifyScrollTextChange(resItem.getContent());
-                    }
-                    else if (resItem.getType() == BestResItem.ResourceType.URL)
-                    {
-                        // 处理网页的URL
-                        BestDownloadHelper.getInstance().handleWebViewResource(resItem.getContent());
-                    }
-                    else
-                    {
-                        // 播放图片或者视频的资源
-                        playItemList.add(resItem);
+                    switch (resItem.getType()){
+                        case Title:
+                            ConfigManager.getInstance().setTitle(resItem.getContent());
+                            ControlCenter.getInstance().notifyTitleChange(resItem.getContent());
+                            break;
+                        case ScrollText:
+                            ConfigManager.getInstance().setScrollText(resItem.getContent());
+                            ControlCenter.getInstance().notifyScrollTextChange(resItem.getContent());
+                            break;
+                        case URL:
+                            // 处理网页的URL
+                            BestDownloadHelper.getInstance().handleWebViewResource(resItem.getContent());
+                            break;
+                        default :
+                            // 播放图片或者视频的资源
+                            playItemList.add(resItem);
+                            break;
+
                     }
                 }
             }

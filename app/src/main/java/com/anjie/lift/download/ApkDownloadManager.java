@@ -139,9 +139,9 @@ public class ApkDownloadManager
 
     /**
      * 开始下载APK的任务
-     * 
-     * @param url
-     * @param apkPath
+     *
+     * @param path
+     * apkPath
      */
     private void downloadApk(final String path)
     {
@@ -199,9 +199,9 @@ public class ApkDownloadManager
 
     /**
      * 更新下载失败信息
-     * 
-     * @param url
-     * @param filePath
+     *
+     * @param path
+     * file path
      */
     private void updateDownloadApkFailed(String path)
     {
@@ -212,7 +212,7 @@ public class ApkDownloadManager
     /**
      * 安装下载完的APK
      * 
-     * @param apkPath
+     *
      */
     private void installApk()
     {

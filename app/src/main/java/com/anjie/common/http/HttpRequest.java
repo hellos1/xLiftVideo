@@ -75,12 +75,13 @@ public abstract class HttpRequest implements Job<String>
     /**
      * HTTP请求任务
      * 
-     * @param listener
-     *            联网回调接口
-     * @param httpUrl
-     *            连接地址
-     * @param handler
-     *            回调
+     *
+     * @param serverUrl
+     * httpUrl
+     * 连接地址
+     * @param isPost
+     * handler
+     * 回调
      */
     protected HttpRequest(String serverUrl, boolean isPost)
     {

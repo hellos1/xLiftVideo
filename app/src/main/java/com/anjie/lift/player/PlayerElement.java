@@ -157,26 +157,23 @@ public class PlayerElement implements Parcelable
         dest.writeString(filePath);
         dest.writeString(fullPath);
         dest.writeInt(playImageTime);
+        switch (mType){
+            case video:
+                dest.writeInt(1);
+                break;
+            case image:
+                dest.writeInt(2);
+                break;
+            case audio:
+                dest.writeInt(3);
+                break;
+            case url:
+                dest.writeInt(4);
+                break;
+            default:
+                dest.writeInt(0);
+                break;
 
-        if (mType == ElementType.video)
-        {
-            dest.writeInt(1);
-        }
-        else if (mType == ElementType.image)
-        {
-            dest.writeInt(2);
-        }
-        else if (mType == ElementType.audio)
-        {
-            dest.writeInt(3);
-        }
-        else if (mType == ElementType.url)
-        {
-            dest.writeInt(4);
-        }
-        else
-        {
-            dest.writeInt(0);
         }
     }
 

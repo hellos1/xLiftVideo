@@ -83,7 +83,7 @@ public class StringUtils
     /**
      * BASE64加密
      * 
-     * @param srcText
+     * @param srcInfo
      * @return
      */
     public static String Base64Encode(byte[] srcInfo)

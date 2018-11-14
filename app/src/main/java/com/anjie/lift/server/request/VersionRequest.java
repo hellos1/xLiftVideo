@@ -13,7 +13,7 @@ public class VersionRequest extends BaseRequest
     /**
      * 版本号请求
      * 
-     * @param serverUrl
+     * //@param serverUrl
      * @param isPost
      */
     public VersionRequest(boolean isPost)

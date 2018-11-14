@@ -185,24 +185,20 @@ public class BestDownloadHelper
             urlList[i] = encodeUrl(item.getContent());
 
             //urlList[i] = item.getContent();
-
             // 封装保存路径数组
-            if (item.getType() == BestResItem.ResourceType.Picture)
-            {
-                savePathList[i] = FileManager.getInstance().getImagePathDir();
-            }
-            else if (item.getType() == BestResItem.ResourceType.Video)
-            {
-                savePathList[i] = FileManager.getInstance().getVideoPathDir();
-            }
-            else if (item.getType() == BestResItem.ResourceType.Backgroud)
-            {
-                savePathList[i] = FileManager.getInstance().getAudioPathDir();
-            }
-            //2018.05.03
-            else if (item.getType() == BestResItem.ResourceType.audio)
-            {
-                savePathList[i] = FileManager.getInstance().getAudioPathDir();
+            switch (item.getType()){
+                case Picture:
+                    savePathList[i] = FileManager.getInstance().getImagePathDir();
+                    break;
+                case Video:
+                    savePathList[i] = FileManager.getInstance().getVideoPathDir();
+                    break;
+                case Backgroud:
+                    savePathList[i] = FileManager.getInstance().getAudioPathDir();
+                    break;
+                case audio:
+                    savePathList[i] = FileManager.getInstance().getAudioPathDir();
+                    break;
             }
         }
 

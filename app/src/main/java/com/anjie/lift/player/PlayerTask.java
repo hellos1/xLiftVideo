@@ -119,34 +119,31 @@ public class PlayerTask implements Runnable
             onTaskFinish();
             return;
         }
-        if (playElement.getType() == ElementType.video) {
-            //if (){}else {}在此处增加SharePreference标志位的判断，如果是旋转屏幕后第一次播放则initVideo()，否则直接playVideo();
-            // 播放视频
-            // initVideo();
+        switch (playElement.getType()){
+            case video:
+                //if (){}else {}在此处增加SharePreference标志位的判断，如果是旋转屏幕后第一次播放则initVideo()，否则直接playVideo();
+                // 播放视频
+                // initVideo();
+                playVideo(playElement);
+                break;
+            case audio:
+                // 播放音频
+                playAudio(playElement);
+                break;
+            case image:
+                // 播放图片
+                playImage(playElement);
+                break;
+            case url:
+                // 加载网页
+                playUrl(playElement);
+                break;
+            default:
+                LogX.w(TAG, "playElement.getType() is unKnow.");
+                // 异常情况
+                onTaskFinish();
+                break;
 
-            playVideo(playElement);
-
-        }
-        else if (playElement.getType() == ElementType.audio)
-        {
-            // 播放音频
-            playAudio(playElement);
-        }
-        else if (playElement.getType() == ElementType.image)
-        {
-            // 播放图片
-            playImage(playElement);
-        }
-        else if (playElement.getType() == ElementType.url)
-        {
-            // 加载网页
-            playUrl(playElement);
-        }
-        else
-        {
-            LogX.w(TAG, "playElement.getType() is unKnow.");
-            // 异常情况
-            onTaskFinish();
         }
     }
 

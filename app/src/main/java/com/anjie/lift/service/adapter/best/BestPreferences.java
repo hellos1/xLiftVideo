@@ -50,8 +50,7 @@ public class BestPreferences
     /**
      * 缓存升级APK的URL
      *
-     * @param url
-     * @return
+     *
      */
     public void ClearCache()
     {
